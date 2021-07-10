@@ -1,7 +1,7 @@
-name: flutter_package_template
+name: widget_examples_tester
 description: A new Flutter package project.
 version: 0.0.1
-homepage: https://github.com/tmcmaster/flutter_package_template/blob/main/README.md
+homepage: https://github.com/tmcmaster/widget_examples_tester/blob/main/README.md
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -13,6 +13,14 @@ flutter:
 dependencies:
   flutter:
     sdk: flutter
+  dropdown_search:
+  flutter_riverpod:
+  theme_builder:
+    git:
+      url: https://github.com/tmcmaster/theme_builder.git
+  widget_tester:
+    git:
+      url: https://github.com/tmcmaster/widget_tester.git
 
 dev_dependencies:
   flutter_test:
@@ -20,3 +28,4 @@ dev_dependencies:
   pedantic:
   lint:
   test:
+  faker:
