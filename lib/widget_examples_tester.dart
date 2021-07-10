@@ -1,7 +1,4 @@
 library widget_examples_tester;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/examples_builder.dart';
+export 'src/widget_examples_tester.dart';
