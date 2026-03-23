@@ -9,20 +9,18 @@ class ExamplesSelector extends ConsumerWidget {
     Key? key,
   }) : super(key: key);
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final selectedExamplesBuilderType = watch(WidgetExamplesTesterProviders.selectedExamplesBuilderType);
-    final examplesTypeList = watch(WidgetExamplesTesterProviders.exampleSetNames);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final selectedExamplesBuilderType = ref.watch(WidgetExamplesTesterProviders.selectedExamplesBuilderType.notifier);
+    final examplesTypeList = ref.watch(WidgetExamplesTesterProviders.exampleSetNames);
     return Container(
       width: 400,
       padding: EdgeInsets.all(20),
       child: (examplesTypeList.isNotEmpty
           ? DropdownSearch<String>(
-              mode: Mode.MENU,
-              compareFn: (a, b) => a == b,
-              showSelectedItem: true,
+              popupProps: PopupProps.menu(
+                showSelectedItems: true,
+              ),
               items: examplesTypeList,
-              label: 'Example Set',
-              hint: 'country in menu mode',
               onChanged: (selected) => selectedExamplesBuilderType.state = selected!,
               selectedItem: selectedExamplesBuilderType.state)
           : Text('No Examples')),

@@ -9,8 +9,8 @@ class WidgetTesterContainer extends ConsumerWidget {
   const WidgetTesterContainer({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final examplesBuilder = watch(WidgetExamplesTesterProviders.selectedExamplesBuilder);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final examplesBuilder = ref.watch(WidgetExamplesTesterProviders.selectedExamplesBuilder);
     final exampleWidgets = examplesBuilder.build();
     final aspectRatio = examplesBuilder.aspectRatio;
     final columns = examplesBuilder.columns;

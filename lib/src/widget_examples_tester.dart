@@ -9,7 +9,7 @@ class WidgetExamplesTester extends ConsumerWidget {
   const WidgetExamplesTester({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       padding: EdgeInsets.all(10),
       child: Column(

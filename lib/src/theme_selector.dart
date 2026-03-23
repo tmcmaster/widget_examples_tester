@@ -8,24 +8,23 @@ class ThemeSelector extends ConsumerWidget {
     Key? key,
   }) : super(key: key);
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final styleNames = watch(ThemeBuilderProviders.styleNames);
-    final selectedStyleName = watch(ThemeBuilderProviders.selectedStyleName);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final styleNames = ref.watch(ThemeBuilderProviders.styleNames);
+    final selectedStyleName = ref.watch(ThemeBuilderProviders.selectedStyleName.notifier);
 
     return Container(
       width: 200,
       padding: EdgeInsets.all(20),
       child: (styleNames.isNotEmpty
           ? DropdownSearch<StyleName>(
-              itemAsString: (item) => item.text,
-              mode: Mode.MENU,
-              compareFn: (a, b) => a == b,
-              showSelectedItem: true,
+              popupProps: PopupProps.menu(
+                showSelectedItems: false,
+              ),
               items: styleNames,
-              label: 'Themes',
-              hint: 'country in menu mode',
+              itemAsString: (item) => item.text,
               onChanged: (selected) => selectedStyleName.state = selected!,
-              selectedItem: selectedStyleName.state)
+              selectedItem: selectedStyleName.state,
+            )
           : Text('No Examples')),
     );
   }

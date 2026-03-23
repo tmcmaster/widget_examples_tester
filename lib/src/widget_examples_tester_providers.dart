@@ -26,7 +26,7 @@ class WidgetExamplesTesterProviders {
   static final selectedExamplesBuilder = Provider<ExamplesBuilder>(
     (ref) {
       final map = ref.watch(exampleBuildersMap);
-      final type = ref.watch(selectedExamplesBuilderType).state;
+      final type = ref.watch(selectedExamplesBuilderType);
       return map[type]!;
     },
     name: 'selected-examples-builder',
